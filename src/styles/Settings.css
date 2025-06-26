@@ -1,0 +1,82 @@
+/* src/styles/Settings.css */
+
+.settings-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.settings-card {
+  width: 100%;
+  max-width: 600px;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.settings-wrapper.dark .settings-card {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.setting-item {
+  margin-bottom: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.setting-item label {
+  font-weight: 500;
+  margin-right: 1rem;
+  flex: 1;
+}
+
+.setting-item input[type="number"],
+.setting-item select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 160px;
+}
+
+.toggle input {
+  width: auto;
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.settings-actions button {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button.save {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+button.reset {
+  background-color: #f44336;
+  color: #fff;
+}
+
+button:hover {
+  opacity: 0.9;
+}

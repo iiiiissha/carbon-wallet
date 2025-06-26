@@ -1,17 +1,16 @@
 import React from "react";
 import "../styles/Dashboard.css";
 
-const Dashboard = ({ spent, history }) => {
-  const carbonBudget = 10000; // Set your total CO2 budget here (grams)
-  const percentage = Math.min((spent / carbonBudget) * 100, 100).toFixed(1);
+const Dashboard = ({ spent, history, budget = 10000, darkMode }) => {
+  const percentage = Math.min((spent / budget) * 100, 100).toFixed(1);
 
   return (
-    <div className="dashboard-container">
+    <div className={darkMode ? "dashboard-container dark" : "dashboard-container light"}>
       <h2 className="dashboard-title">📊 Your Carbon Summary</h2>
 
       <div className="carbon-box">
         <p><strong>Total Carbon Spent:</strong> {spent}g CO₂e</p>
-        <p><strong>Carbon Budget:</strong> {carbonBudget}g</p>
+        <p><strong>Carbon Budget:</strong> {budget}g</p>
 
         <div className="progress-bar-background">
           <div className="progress-bar-fill" style={{ width: `${percentage}%` }}>

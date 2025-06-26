@@ -3,10 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Checkout from "./pages/Checkout";
 import Dashboard from "./pages/Dashboard";
+import Settings from "./pages/Settings";
+
 
 function App() {
   const [spent, setSpent] = useState(0);
   const [history, setHistory] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
 
   const handlePurchase = (product) => {
     setSpent((prev) => prev + product.co2);
@@ -21,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Checkout onPurchase={handlePurchase} />} />
         <Route path="/dashboard" element={<Dashboard spent = {spent} history={history}/>} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </BrowserRouter>
   );
