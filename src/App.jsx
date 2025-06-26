@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Checkout from "./pages/Checkout";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const [spent, setSpent] = useState(0);
@@ -19,7 +20,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Checkout onPurchase={handlePurchase} />} />
-        <Route path="/dashboard" element={<div>Coming soon...</div>} />
+        <Route path="/dashboard" element={<Dashboard spent = {spent} history={history}/>} />
       </Routes>
     </BrowserRouter>
   );
