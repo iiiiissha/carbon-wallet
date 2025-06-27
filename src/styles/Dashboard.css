@@ -2,33 +2,73 @@
   max-width: 800px;
   margin: auto;
   padding: 30px 20px;
-  background-color: #f7f7f7;
   min-height: 100vh;
+  transition: all 0.3s ease;
 }
 
+/* Light Theme */
+.dashboard-container.light {
+  background-color: #f7f7f7;
+  color: #222;
+}
+
+.dashboard-container.light .carbon-box,
+.dashboard-container.light .history-list {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container.light .progress-bar-background {
+  background-color: #e0e0e0;
+}
+
+.dashboard-container.light .history-list li {
+  border-bottom: 1px solid #eee;
+}
+
+/* Dark Theme */
+.dashboard-container.dark {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+.dashboard-container.dark .carbon-box,
+.dashboard-container.dark .history-list {
+  background: #2c2c2c;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+.dashboard-container.dark .progress-bar-background {
+  background-color: #444;
+}
+
+.dashboard-container.dark .history-list li {
+  border-bottom: 1px solid #666;
+}
+
+/* Shared Styles */
 .dashboard-title {
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 24px;
-  color: #2f855a;
+  color: #38a169;
   text-align: center;
 }
 
 .carbon-box {
-  background: #fff;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   margin-bottom: 30px;
+  transition: all 0.3s ease;
 }
 
 .progress-bar-background {
   height: 25px;
   width: 100%;
-  background-color: #e0e0e0;
   border-radius: 12px;
   margin-top: 10px;
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
 .progress-bar-fill {
@@ -43,22 +83,16 @@
 
 .history-title {
   margin-bottom: 10px;
-  color: #444;
+  font-size: 20px;
 }
 
 .history-list {
-  background: #fff;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  transition: all 0.3s ease;
 }
 
 .history-list li {
   padding: 5px 0;
-  border-bottom: 1px solid #eee;
   font-size: 15px;
-}
-
-.history-list li:last-child {
-  border-bottom: none;
 }

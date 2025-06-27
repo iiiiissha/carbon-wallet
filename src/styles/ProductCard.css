@@ -1,37 +1,97 @@
 .product-card {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 15px;
-  margin: 10px;
   width: 220px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.product-card:hover {
-  transform: translateY(-4px);
+/* Light Theme */
+.product-card.light {
+  background-color: #ffffff;
+  color: #222;
+  border: 1px solid #ddd;
 }
 
-.product-card h3 {
-  margin: 0;
-  font-size: 18px;
-}
-
-.product-card p {
-  margin: 8px 0;
+.product-card.light .product-co2 {
   color: #555;
 }
 
-.product-card button {
+.product-card.light .buy-button {
   background-color: #1976d2;
   color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
-.product-card button:hover {
-  background-color: #125aa0;
+/* Dark Theme */
+.product-card.dark {
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+  border: 1px solid #444;
+}
+
+.product-card.dark .product-co2 {
+  color: #bbb;
+}
+
+.product-card.dark .buy-button {
+  background-color: #48bb78;
+  color: #fff;
+}
+
+.product-card.dark .buy-button:hover {
+  background-color: #38a169;
+}
+
+/* Shared styles */
+.product-name {
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.product-co2 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+}
+
+/* Shared Button Styling */
+.buy-button {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Light Mode Button */
+.product-card.light .buy-button {
+  background-color: #2f855a;
+  color: #fff;
+}
+
+.product-card.light .buy-button:hover {
+  background-color: #276749;
+}
+
+/* Dark Mode Button */
+.product-card.dark .buy-button {
+  background-color: #38a169;
+  color: #fff;
+}
+
+.product-card.dark .buy-button:hover {
+  background-color: #2f855a;
+}
+
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }

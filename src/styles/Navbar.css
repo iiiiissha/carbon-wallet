@@ -1,12 +1,42 @@
 .main-navbar {
-  background-color: #f1f1f1;
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  transition: all 0.3s ease;
 }
 
+/* Light Theme */
+.main-navbar.light {
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #ddd;
+  color: #222;
+}
+
+.main-navbar.light .nav-links a {
+  color: #333;
+}
+
+.main-navbar.light .nav-links a:hover {
+  color: #38a169;
+}
+
+/* Dark Theme */
+.main-navbar.dark {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #444;
+  color: #f5f5f5;
+}
+
+.main-navbar.dark .nav-links a {
+  color: #f5f5f5;
+}
+
+.main-navbar.dark .nav-links a:hover {
+  color: #48bb78;
+}
+
+/* Shared */
 .logo {
   font-size: 20px;
   font-weight: bold;
@@ -16,10 +46,7 @@
 .nav-links a {
   margin-left: 20px;
   text-decoration: none;
-  color: #333;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #38a169;
-}

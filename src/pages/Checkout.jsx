@@ -3,9 +3,9 @@ import "../styles/Checkout.css";
 import products from "../data/products";
 import ProductCard from "../components/ProductCard";
 
-const Checkout = ({ onPurchase }) => {
+const Checkout = ({ onPurchase, darkMode }) => {
   return (
-    <div className="checkout-container">
+    <div className={`checkout-container ${darkMode ? "dark" : "light"}`}>
       <h2 className="checkout-title">🛒 Select Products to Buy</h2>
       <div className="product-list">
         {products.map((product) => (
@@ -19,5 +19,6 @@ const Checkout = ({ onPurchase }) => {
     </div>
   );
 };
+
 
 export default Checkout;
