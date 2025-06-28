@@ -8,7 +8,6 @@ const Settings = ({ budget, setBudget, darkMode, setDarkMode }) => {
   const [goal, setGoal] = useState(5000);
   const [language, setLanguage] = useState("en");
   const [emailReminder, setEmailReminder] = useState(false);
-
   const handleSave = () => {
     alert("✅ Preferences saved successfully!");
   };
@@ -93,8 +92,8 @@ const Settings = ({ budget, setBudget, darkMode, setDarkMode }) => {
         </div>
 
         <div className="settings-actions">
-          <button onClick={handleSave} className="save">💾 Save</button>
-          <button onClick={resetAll} className="reset">🔄 Reset</button>
+          {/* <button onClick={handleSave} className="save">💾 Save</button>
+          <button onClick={resetAll} className="reset">🔄 Reset</button> */}
         </div>
       </div>
     </div>
