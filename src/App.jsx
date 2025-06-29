@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Checkout from "./pages/Checkout";
 import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
+import AuthPage from "./pages/AuthPage";
 import "./index.css";
 
 function App() {
@@ -19,33 +20,29 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <Navbar  darkMode={darkMode}/>
-
+    <>
+      <Navbar darkMode={darkMode} />
       <div className={darkMode ? "app dark" : "app light"}>
         <Routes>
-          <Route path="/" element={<Checkout onPurchase={handlePurchase} darkMode={darkMode}/>} />
+          <Route
+            path="/"
+            element={<Checkout onPurchase={handlePurchase} darkMode={darkMode} />}
+          />
           <Route
             path="/dashboard"
-            element={
-              <Dashboard spent={spent} history={history} budget={budget}  darkMode={darkMode} />
-            }
+            element={<Dashboard spent={spent} history={history} budget={budget} darkMode={darkMode} />}
           />
           <Route
             path="/settings"
-            element={
-              <Settings
-                budget={budget}
-                setBudget={setBudget}
-                darkMode={darkMode}
-                setDarkMode={setDarkMode}
-              />
-            }
+            element={<Settings budget={budget} setBudget={setBudget} darkMode={darkMode} setDarkMode={setDarkMode} />}
+          />
+          <Route
+            path="/auth"
+            element={<AuthPage darkMode={darkMode} />}
           />
         </Routes>
       </div>
-     
-    </BrowserRouter>
+    </>
   );
 }
 

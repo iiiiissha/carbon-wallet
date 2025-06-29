@@ -9,7 +9,10 @@ const Navbar = ({ darkMode }) => {
       <div className="nav-links">
         <Link to="/">Checkout</Link>
         <Link to="/dashboard">Dashboard</Link>
+        <Link to="/auth">SignUp</Link>
         <Link to="/settings">Settings</Link>
+        
+
       </div>
     </nav>
   );

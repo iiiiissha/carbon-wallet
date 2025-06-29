@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/Dashboard.css";
+import { useFirebase } from "../context/Firebase";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = ({ spent, history, budget = 10000, darkMode }) => {
+
+  const {user} = useFirebase();
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    if(!user){
+      alert("Login First");
+      navigate('/auth');
+    }
+  },[user,navigate]);
+
   const percentage = Math.min((spent / budget) * 100, 100).toFixed(1);
 
   return (
