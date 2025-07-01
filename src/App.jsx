@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Settings from "./pages/Settings";
 import AuthPage from "./pages/AuthPage";
 import "./index.css";
+import AIAssistant from "./components/AIAssistant";
 
 function App() {
   const [spent, setSpent] = useState(0);
@@ -41,6 +42,7 @@ function App() {
             element={<AuthPage darkMode={darkMode} />}
           />
         </Routes>
+        <AIAssistant/>
       </div>
     </>
   );
