@@ -1,28 +1,57 @@
 import React, { useState } from "react";
 import { getCarbonAdvice } from "../services/openai";
+import "../styles/aiAssistant.css";
 
-const AIAssistant = () => {
+
+const AIAssistant = ({ darkMode }) => {
   const [query, setQuery] = useState("");
   const [response, setResponse] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [cooldown, setCooldown] = useState(false);
 
   const handleAsk = async () => {
-    const res = await getCarbonAdvice(query);
-    setResponse(res);
+    if (!query.trim() || cooldown) return;
+
+    setLoading(true);
+    setError("");
+    setResponse("");
+    setCooldown(true);
+
+    try {
+      const res = await getCarbonAdvice(query);
+      setResponse(res);
+      setQuery(""); // ✅ Clear the input after asking
+    } catch (err) {
+      console.error("API error:", err);
+      setError(err.message || "⚠️ Failed to fetch response.");
+    }
+
+    setLoading(false);
+    setTimeout(() => setCooldown(false), 3000); // ✅ 3-second cooldown
   };
 
   return (
-    <div className="ai-box" style={{ padding: "1rem", border: "1px solid #ccc", marginTop: "1rem" }}>
+    <div className={`ai-box ${darkMode ? "dark-box" : "light-box"}`}>
       <h2>🧠 Sustainability Assistant</h2>
+
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleAsk()}
         placeholder="e.g. How can I lower my carbon footprint?"
-        style={{ width: "100%", padding: "0.5rem", marginBottom: "0.5rem" }}
+        disabled={loading}
       />
-      <button onClick={handleAsk}>Ask AI</button>
+
+      <button onClick={handleAsk} disabled={loading || !query.trim() || cooldown}>
+        {loading ? "Asking..." : "Ask AI"}
+      </button>
+
+      {error && <div className="error">{error}</div>}
+
       {response && (
-        <div style={{ marginTop: "1rem", backgroundColor: "#f0f0f0", padding: "1rem" }}>
+        <div className="response">
           <strong>Response:</strong> {response}
         </div>
       )}
@@ -31,3 +60,5 @@ const AIAssistant = () => {
 };
 
 export default AIAssistant;
+
+

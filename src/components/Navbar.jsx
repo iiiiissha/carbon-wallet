@@ -11,6 +11,8 @@ const Navbar = ({ darkMode }) => {
         <Link to="/dashboard">Dashboard</Link>
         <Link to="/auth">SignUp</Link>
         <Link to="/settings">Settings</Link>
+        <Link to="/assistant">Ask AI</Link>
+
         
 
       </div>

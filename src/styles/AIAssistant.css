@@ -1,49 +1,83 @@
-.ai-assistant {
-  max-width: 600px;
-  margin: 2rem auto;
+.ai-box {
+  border-radius: 10px;
   padding: 1.5rem;
-  border-radius: 12px;
-  background-color: #f4f4f4;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', sans-serif;
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.ai-assistant h2 {
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-}
-
-textarea {
-  width: 100%;
-  padding: 1rem;
-  font-size: 1rem;
+.light-box {
+  background-color: #f9f9f9;
+  color: #333;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  resize: vertical;
+}
+
+.dark-box {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+.ai-box h2 {
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
-button {
-  padding: 0.6rem 1.2rem;
-  background-color: #2ecc71;
-  color: white;
+.ai-box input {
+  width: 100%;
+  padding: 0.7rem;
   font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  outline: none;
 }
 
-button:hover {
-  background-color: #27ae60;
+.light-box input {
+  background-color: white;
+  color: black;
+}
+
+.dark-box input {
+  background-color: #2a2a2a;
+  color: #ddd;
+  border: 1px solid #666;
+}
+
+.ai-box button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #009688;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.ai-box button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
 }
 
 .response {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: #ffffff;
-  border-left: 5px solid #2ecc71;
-  border-radius: 8px;
-  white-space: pre-wrap;
+  background-color: #e7f4ec;
+  border-left: 4px solid #2e7d32;
+  color: #333;
+}
+
+.dark-box .response {
+  background-color: #2b3c2b;
+  color: #cfcfcf;
+  border-left-color: #66bb6a;
+}
+
+.error {
+  color: #e53935;
+  margin-top: 1rem;
+  font-weight: bold;
 }
